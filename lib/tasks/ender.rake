@@ -24,7 +24,7 @@ namespace :ender do
     task :install do
       Rake::Task[:install_nvm].invoke unless ENV['NVM_BIN']
       node_version = ENV['NODE_VERSION'] || '0.8.16'
-      sh "nvm install #{node_version}"
+      sh "sh #{ENV['NVM_DIR']}/nvm.sh && nvm install #{node_version}"
     end
 
   end
@@ -42,7 +42,7 @@ namespace :ender do
 
   desc "build ender base jeesh packages (and remove all the rest)"
   task :build => :check do
-    output_path = File.join(Rail.root,'app','assets','javascript')
+    output_path = File.join(Rails.root,'app','assets','javascript')
     sh "ender build jeesh --output #{output_path}"
   end
 
