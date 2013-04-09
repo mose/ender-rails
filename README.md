@@ -6,7 +6,8 @@ To fight the paretto monopoly of jQuery, let's have [Ender](http://ender.jit.su)
 
 ## Requirement
 
-Rails >= 3.1
+* Rails >= 3.1
+* Node >= 0.4
 
 ## Installation
 
@@ -55,9 +56,10 @@ In your views, you can then use the basic [Jeesh tools](https://github.com/ender
 
 * create an ender-ujs package
 * add more rake commands
-* remove the min.js from assets dir, the assets pipeline will do that job
 * test the install on various ruby versions (using apraisal ?)
 * write some rake tests
+* fix the nvm install and usage
+* tag v0.0.1 and package it as a gem when ready
 
 ## Contributing
 
