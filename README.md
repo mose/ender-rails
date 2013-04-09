@@ -1,4 +1,4 @@
-# Ender::Rails
+# Ender-Rails
 
 To fight the paretto monopoly of jQuery, let's have [Ender](http://ender.jit.su) and the Jeesh manage our javascript in Ruby on Rails. And an ender-ujs to make it right.
 
@@ -27,11 +27,17 @@ Or install it yourself as:
 Ender-rails is going to help installing Nvm and Node with some simple rake task.
 If you don't have Node.js already available, just run:
 
-    rake node:install
+    rake ender:node:install
 
 ## Usage
 
     rake ender:install
+
+When ender is installed you can use ender instead of "rake ender"
+
+    rake ender:buid # will copy a version of ender in app/assets/javascripts/
+    rake ender:info
+    rake ender:help
 
 ## Contributing
 
