@@ -22,12 +22,14 @@ Or install it yourself as:
 
     $ gem install ender-rails
 
-## Install node
+## Node installation
 
 Ender-rails is going to help installing Nvm and Node with some simple rake task.
 If you don't have Node.js already available, just run:
 
     rake ender:node:install
+
+Honestly it can also be a good occasion to begin checking out this tool if you have not already.
 
 ## Usage
 
@@ -35,9 +37,27 @@ If you don't have Node.js already available, just run:
 
 When ender is installed you can use ender instead of "rake ender"
 
-    rake ender:buid # will copy a version of ender in app/assets/javascripts/
-    rake ender:info
+    rake ender:buid # will copy a version of the jeesh in app/assets/javascripts/
+    rake ender:info # lists installed packages
     rake ender:help
+
+Find list of available ender packages on https://github.com/ender-js/Ender/wiki/Ender-package-list
+
+You can add new packages with
+
+    ender add xxx yyy
+
+Refer to [ender documentation](http://ender.jit.su/#docs) on how to add more flecibility in your javascript package binder.
+
+In your views, you can then use the basic [Jeesh tools](https://github.com/ender-js/jeesh) which you feel like you are using jQuery for most parts (without the bulk).
+
+## Todo
+
+* create an ender-ujs package
+* add more rake commands
+* remove the min.js from assets dir, the assets pipeline will do that job
+* test the install on various ruby versions (using apraisal ?)
+* write some rake tests
 
 ## Contributing
 
@@ -46,3 +66,7 @@ When ender is installed you can use ender instead of "rake ender"
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## License
+
+Copyright (c) 2013 mose - distributed under MIT license
