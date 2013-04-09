@@ -47,13 +47,36 @@ namespace :ender do
     FileUtils.rm("#{output_path}.min.js")
   end
 
-  desc "build ender base jeesh packages (and remove all the rest)"
+  desc "refresh the build"
+  task :build => :check do
+    output_path = File.join(Rails.root,'app','assets','javascripts','ender')
+    sh "ender refresh --use #{output_path}"
+    FileUtils.rm("#{output_path}.min.js")
+  end
+
+  desc "show list of installed packages"
   task :info => :check do
-    sh "ender info"
+    output_path = File.join(Rails.root,'app','assets','javascripts','ender')
+    sh "ender info --use #{output_path}"
   end  
 
-  desc "build ender base jeesh packages (and remove all the rest)"
+  desc "display ender help"
   task :help => :check do
     sh "ender"
-  end  
+  end 
+
+  desc "add a package to the ender build"
+  task :add, :package => :check, do |p|
+    output_path = File.join(Rails.root,'app','assets','javascripts','ender')
+    sh "ender add #{p[:package]} --use #{output_path}"
+    FileUtils.rm("#{output_path}.min.js")
+  end
+
+  desc "remove a package from the ender build"
+  task :remove, :package => :check do |p|
+    output_path = File.join(Rails.root,'app','assets','javascripts','ender')
+    sh "ender remove #{p[:package]} --use #{output_path}"
+    FileUtils.rm("#{output_path}.min.js")
+  end
+
 end
