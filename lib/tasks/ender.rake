@@ -44,14 +44,14 @@ namespace :ender do
   task :build => :check do
     output_path = File.join(Rails.root,'app','assets','javascripts','ender')
     sh "ender build jeesh --output #{output_path}"
-    FileUtils.rm("#{output_path}.min.js")
+    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{output_path}.min.js")
   end
 
   desc "refresh the build"
-  task :build => :check do
+  task :refresh => :check do
     output_path = File.join(Rails.root,'app','assets','javascripts','ender')
     sh "ender refresh --use #{output_path}"
-    FileUtils.rm("#{output_path}.min.js")
+    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{output_path}.min.js")
   end
 
   desc "show list of installed packages"
@@ -66,17 +66,19 @@ namespace :ender do
   end 
 
   desc "add a package to the ender build"
-  task :add, :package => :check, do |p|
+  task :add, [:package] => [:check] do |t,p|
+    puts t.inspect
+    puts p.inspect
     output_path = File.join(Rails.root,'app','assets','javascripts','ender')
     sh "ender add #{p[:package]} --use #{output_path}"
-    FileUtils.rm("#{output_path}.min.js")
+    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{output_path}.min.js")
   end
 
   desc "remove a package from the ender build"
-  task :remove, :package => :check do |p|
+  task :remove, [:package] => [:check] do |t,p|
     output_path = File.join(Rails.root,'app','assets','javascripts','ender')
     sh "ender remove #{p[:package]} --use #{output_path}"
-    FileUtils.rm("#{output_path}.min.js")
+    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{output_path}.min.js")
   end
 
 end
