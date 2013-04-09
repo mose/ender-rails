@@ -42,8 +42,9 @@ namespace :ender do
 
   desc "build ender base jeesh packages (and remove all the rest)"
   task :build => :check do
-    output_path = File.join(Rails.root,'app','assets','javascript')
+    output_path = File.join(Rails.root,'app','assets','javascripts','ender')
     sh "ender build jeesh --output #{output_path}"
+    FileUtils.rm("#{output_path}.min.js")
   end
 
   desc "build ender base jeesh packages (and remove all the rest)"
