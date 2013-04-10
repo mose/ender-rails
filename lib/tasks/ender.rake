@@ -24,7 +24,7 @@ namespace :ender do
     task :install do
       Rake::Task['ender:node:install_nvm'].invoke unless ENV['NVM_DIR']
       node_version = ENV['NODE_VERSION'] || '0.8.16'
-      exec "/bin/bash -c 'source ~/.nvm/nvm.sh && nvm install #{node_version}'"
+      sh "/bin/bash -c 'source ~/.nvm/nvm.sh && nvm install #{node_version}'"
     end
 
   end
@@ -34,12 +34,13 @@ namespace :ender do
     if `which npm`.size.<=(0)
       if ENV['NVM_DIR']
         node_version = ENV['NODE_VERSION'] || '0.8.16'
-        exec "/bin/bash -c 'source #{ENV['NVM_DIR']}/nvm.sh && nvm install #{node_version} && nvm use #{node_version}'"
+        sh "/bin/bash -c 'source #{ENV['NVM_DIR']}/nvm.sh && nvm install #{node_version} && nvm use #{node_version}'"
       else
         Rake::Task['ender:node:install'].invoke
       end
     end
     sh 'npm install ender -g'
+    puts "Please run 'source ~/.nvm/nvm.sh && nvm use #{node_version}' to reload nodejs environment '"
   end
 
   desc "check is ender is installed"
