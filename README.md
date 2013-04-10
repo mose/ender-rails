@@ -52,10 +52,6 @@ Rake is a bit awkward when it comes to pass arguments, so here are the was to do
 
 Find list of available ender packages on https://github.com/ender-js/Ender/wiki/Ender-package-list
 
-You can add new packages with
-
-    ender add xxx yyy --use app/assets/javascripts/ender
-
 Refer to [ender documentation](http://ender.jit.su/#docs) on how to add more flecibility in your javascript package binder.
 
 In your views, you can then use the basic [Jeesh tools](https://github.com/ender-js/jeesh) which you feel like you are using jQuery for most parts (without the bulk).
