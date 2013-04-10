@@ -38,7 +38,7 @@ Honestly it can also be a good occasion to begin checking out this tool if you h
 
 When ender is installed you can use ender instead of "rake ender"
 
-    rake ender:buid # will copy a version of the jeesh in app/assets/javascripts/
+    rake ender:build # will copy a version of the jeesh in app/assets/javascripts/
     rake ender:info # lists installed packages
     rake ender:help
     rake ender:add[somepackage]
