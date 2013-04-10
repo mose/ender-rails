@@ -49,6 +49,7 @@ Rake is a bit awkward when it comes to pass arguments, so here are the was to do
     rake ender:add[somepackage]
     rake ender:add['somepackage someother']
     rake ender:add[somepackage\ someother]
+    rake ender:add['somepackage someother ../src/some_local_package']
 
 Find list of available ender packages on https://github.com/ender-js/Ender/wiki/Ender-package-list
 
