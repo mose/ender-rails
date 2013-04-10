@@ -19,7 +19,7 @@ namespace :ender do
         puts e.backtrace
       end
     end
-    
+
     desc "install node version NODE_VERSION (default 0.8.16)"
     task :install do
       Rake::Task[:install_nvm].invoke unless ENV['NVM_BIN']
@@ -31,13 +31,13 @@ namespace :ender do
 
   desc "install files from ender"
   task :install do
-    Rake::Tasks['ender:node:install'].invoke unless `which npm`.size.>(0)
+    Rake::Task['ender:node:install'].invoke unless `which npm`.size.>(0)
     sh 'npm install ender'
   end
 
   desc "check is ender is installed"
   task :check do
-    Rake::Tasks['ender:install'].invoke unless `which ender`.size.>(0)
+    Rake::Task['ender:install'].invoke unless `which ender`.size.>(0)
   end
 
   desc "build ender base jeesh packages (and remove all the rest)"
@@ -58,12 +58,12 @@ namespace :ender do
   task :info => :check do
     output_path = File.join(Rails.root,'app','assets','javascripts','ender')
     sh "ender info --use #{output_path}"
-  end  
+  end
 
   desc "display ender help"
   task :help => :check do
     sh "ender"
-  end 
+  end
 
   desc "add a package to the ender build"
   task :add, [:package] => [:check] do |t,p|
