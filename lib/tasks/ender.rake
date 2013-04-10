@@ -35,12 +35,12 @@ namespace :ender do
     sh 'npm install ender'
   end
 
-  desc "check is ender is installed"
+  desc "check if ender is installed"
   task :check do
     Rake::Task['ender:install'].invoke unless `which ender`.size.>(0)
   end
 
-  desc "build ender base jeesh packages (and remove all the rest)"
+  desc "build ender base Jeesh package (careful it rebuilds from scratch)"
   task :build => :check do
     output_path = File.join(Rails.root,'app','assets','javascripts','ender')
     sh "ender build jeesh --output #{output_path}"
