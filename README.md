@@ -1,8 +1,7 @@
 # Ender-Rails
 
-To fight the paretto monopoly of jQuery, let's have [Ender](http://ender.jit.su) and the Jeesh manage our javascript in Ruby on Rails. And an ender-ujs to make it right.
+To fight the paretto monopoly of jQuery, let's have [Ender](http://ender.jit.su) and [the Jeesh](https://github.com/ender-js/jeesh) manage our javascript in Ruby on Rails. And an [ender-ujs](https://github.com/mose/ender-ujs) to make it right.
 
-(Work in progress, not usable yet)
 
 ## Requirement
 

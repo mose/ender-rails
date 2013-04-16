@@ -5,9 +5,9 @@ Gem::Specification.new do |g|
   g.authors       = ["mose"]
   g.email         = ["mose@mose.com"]
   g.description   = %q{Install Ender and the Jeesh in rails.}
-  g.summary       = %q{Install Ender and the Jeesh in rails.}
+  g.summary       = %q{Install Ender and the Jeesh in rails, using some simple rake tasks.}
   g.homepage      = "https://github.com/mose/ender-rails"
-  g.licencse      = "MIT"
+  g.license       = "MIT"
 
   g.files         = `git ls-files`.split($\)
   g.executables   = g.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
