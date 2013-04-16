@@ -7,6 +7,7 @@ Gem::Specification.new do |g|
   g.description   = %q{Install Ender and the Jeesh in rails.}
   g.summary       = %q{Install Ender and the Jeesh in rails.}
   g.homepage      = "https://github.com/mose/ender-rails"
+  g.licencse      = "MIT"
 
   g.files         = `git ls-files`.split($\)
   g.executables   = g.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
