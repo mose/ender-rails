@@ -1,3 +1,5 @@
+OUTPUT = File.join('app','assets','javascripts','ender')
+
 namespace :ender do
 
   namespace :node do
@@ -50,22 +52,19 @@ namespace :ender do
 
   desc "build ender base Jeesh package (careful it rebuilds from scratch)"
   task :build => :check do
-    output_path = File.join(Rails.root,'app','assets','javascripts','ender')
-    sh "ender build jeesh --output #{output_path}"
-    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{output_path}.min.js")
+    sh "ender build jeesh --output #{OUTPUT}"
+    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{OUTPUT}.min.js")
   end
 
   desc "refresh the build"
   task :refresh => :check do
-    output_path = File.join(Rails.root,'app','assets','javascripts','ender')
-    sh "ender refresh --use #{output_path}"
-    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{output_path}.min.js")
+    sh "ender refresh --use #{OUTPUT}"
+    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{OUTPUT}.min.js")
   end
 
   desc "show list of installed packages"
   task :info => :check do
-    output_path = File.join(Rails.root,'app','assets','javascripts','ender')
-    sh "ender info --use #{output_path}"
+    sh "ender info --use #{OUTPUT}"
   end
 
   desc "display ender help"
@@ -75,18 +74,14 @@ namespace :ender do
 
   desc "add a package to the ender build"
   task :add, [:package] => [:check] do |t,p|
-    puts t.inspect
-    puts p.inspect
-    output_path = File.join(Rails.root,'app','assets','javascripts','ender')
-    sh "ender add #{p[:package]} --use #{output_path}"
-    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{output_path}.min.js")
+    sh "ender add #{p[:package]} --use #{OUTPUT}"
+    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{OUTPUT}.min.js")
   end
 
   desc "remove a package from the ender build"
   task :remove, [:package] => [:check] do |t,p|
-    output_path = File.join(Rails.root,'app','assets','javascripts','ender')
-    sh "ender remove #{p[:package]} --use #{output_path}"
-    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{output_path}.min.js")
+    sh "ender remove #{p[:package]} --use #{OUTPUT}"
+    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{OUTPUT}.min.js")
   end
 
 end
