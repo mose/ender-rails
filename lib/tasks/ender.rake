@@ -33,9 +33,9 @@ namespace :ender do
 
   desc "install files from ender"
   task :install do
+    node_version = ENV['NODE_VERSION'] || '0.8.16'
     if `which npm`.size.<=(0)
       if ENV['NVM_DIR']
-        node_version = ENV['NODE_VERSION'] || '0.8.16'
         sh "/bin/bash -c 'source #{ENV['NVM_DIR']}/nvm.sh && nvm install #{node_version} && nvm use #{node_version}'"
       else
         Rake::Task['ender:node:install'].invoke
@@ -53,13 +53,13 @@ namespace :ender do
   desc "build ender base Jeesh package (careful it rebuilds from scratch)"
   task :build => :check do
     sh "ender build jeesh --output #{OUTPUT}"
-    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{OUTPUT}.min.js")
+    FileUtils.rm("#{OUTPUT}.min.js") if File.exist?("#{OUTPUT}.min.js")
   end
 
   desc "refresh the build"
   task :refresh => :check do
     sh "ender refresh --use #{OUTPUT}"
-    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{OUTPUT}.min.js")
+    FileUtils.rm("#{OUTPUT}.min.js") if File.exist?("#{OUTPUT}.min.js")
   end
 
   desc "show list of installed packages"
@@ -75,13 +75,13 @@ namespace :ender do
   desc "add a package to the ender build"
   task :add, [:package] => [:check] do |t,p|
     sh "ender add #{p[:package]} --use #{OUTPUT}"
-    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{OUTPUT}.min.js")
+    FileUtils.rm("#{OUTPUT}.min.js") if File.exist?("#{OUTPUT}.min.js")
   end
 
   desc "remove a package from the ender build"
   task :remove, [:package] => [:check] do |t,p|
     sh "ender remove #{p[:package]} --use #{OUTPUT}"
-    FileUtils.rm("#{output_path}.min.js") if File.exist?("#{OUTPUT}.min.js")
+    FileUtils.rm("#{OUTPUT}.min.js") if File.exist?("#{OUTPUT}.min.js")
   end
 
 end
