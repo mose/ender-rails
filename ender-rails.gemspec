@@ -16,5 +16,5 @@ Gem::Specification.new do |g|
   g.require_paths = ["lib"]
   g.version       = EnderRails::VERSION
 
-  g.add_dependency "rake", '>= 10.0.0', '< 10.2.0'
+  g.add_dependency "rake", '>= 10.4.2'
 end
